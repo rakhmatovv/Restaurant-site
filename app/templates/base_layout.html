@@ -1,0 +1,160 @@
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Start your development with FoodHut landing page.">
+    <meta name="author" content="Devcrud">
+    <title>FoodHut</title>
+    <link rel="stylesheet" href="{% static 'vendors/themify-icons/css/themify-icons.css' %}">
+    <link rel="stylesheet" href="{% static 'vendors/animate/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'css/foodhut.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style1.css' %}">
+    <link rel="stylesheet" href="{% static 'scss/layout/_header.scss' %}">
+    <link rel="stylesheet" href="{% static 'scss/layout/_sections.scss' %}">
+    <link rel="stylesheet" href="{% static 'scss/abstract/_mixins.scss' %}">
+    <link rel="stylesheet" href="{% static 'scss/abstract/_variables.scss' %}">
+    <link rel="stylesheet" href="{% static 'scss/abstract/mixins/_transitions.scss' %}">
+    <link rel="stylesheet" href="{% static 'scss/abstract/_utilities.scss' %}">
+    <link rel="stylesheet" href="{% static 'scss/components/_buttons.scss' %}">
+    <link rel="stylesheet" href="{% static 'scss/components/_card.scss' %}">
+    <link rel="stylesheet" href="{% static 'scss/components/_code.scss' %}">
+    <link rel="stylesheet" href="{% static 'scss/components/_custom-form.scss' %}">
+    <link rel="stylesheet" href="{% static 'scss/components/_navbar.scss' %}">
+    <link rel="stylesheet" href="{% static 'scss/base/_utilities.scss' %}">
+    <link rel="stylesheet" href="{% static 'scss/base/_base.scss' %}">
+</head>
+
+<body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
+    {% if user.is_authenticated %}
+    <nav class="custom-navbar navbar navbar-expand-lg navbar-dark fixed-top" data-spy="affix" data-offset-top="10">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#gallary">Gallary</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#book-table">Book-Table</a>
+                </li>
+            </ul>
+            <a class="navbar-brand m-auto" href="#">
+                <img src="{% static 'uploads/logo.svg' %}" class="brand-img" alt="">
+                <span class="brand-txt">Food Hut</span>
+            </a>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'app:booked_tables' %}">Booked</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#blog">Blog<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#testmonial">Reviews</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contact Us</a>
+                </li>
+                <li class="nav-item">
+                    <button class="btn-dark">
+                        Welcome: {{ user.username }}
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <header id="home" class="header bg">
+        <div class="overlay text-white text-center">
+            <h1 class="display-2 font-weight-bold my-3">Food Hut</h1>
+            <h2 class="display-4 mb-5">Always fresh &amp; Delightful</h2>
+            <a class="btn btn-lg btn-primary" href="#gallary">View Our gallary</a>
+        </div>
+    </header>
+    {% endif %}
+
+    {% block auth %}
+    {% endblock %}
+
+
+    {% block content %}
+    {% endblock %}
+
+    {% if user.is_authenticated %}
+{#    {% block reviews %}#}
+{#    {% endblock %}#}
+
+    <div id="contact" class="container-fluid bg-dark text-light border-top wow fadeIn">
+        <div class="row">
+            <div class="col-md-6 px-0">
+                <div id="map" style="width: 100%; height: 100%; min-height: 400px"></div>
+            </div>
+            <div class="col-md-6 px-5 has-height-lg middle-items">
+                <h3>FIND US</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit, laboriosam doloremque odio delectus,
+                    sunt magnam laborum impedit molestiae, magni quae ipsum, ullam eos! Alias suscipit impedit et,
+                    adipisci illo quam.</p>
+                <div class="text-muted">
+                    <p><span class="ti-location-pin pr-3"></span> 12345 Fake ST NoWhere, AB Country</p>
+                    <p><span class="ti-support pr-3"></span> (123) 456-7890</p>
+                    <p><span class="ti-email pr-3"></span>info@website.com</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- page footer  -->
+    <div class="container-fluid bg-dark text-light has-height-md middle-items border-top text-center wow fadeIn">
+        <div class="row">
+            <div class="col-sm-4">
+                <h3>EMAIL US</h3>
+                <P class="text-muted">info@website.com</P>
+            </div>
+            <div class="col-sm-4">
+                <h3>CALL US</h3>
+                <P class="text-muted">(123) 456-7890</P>
+            </div>
+            <div class="col-sm-4">
+                <h3>FIND US</h3>
+                <P class="text-muted">12345 Fake ST NoWhere AB Country</P>
+            </div>
+        </div>
+    </div>
+    <div class="bg-dark text-light text-center border-top wow fadeIn">
+        <p class="mb-0 py-3 text-muted small">&copy; Copyright
+            <script>document.write(new Date().getFullYear())</script> Made with <i class="ti-heart text-danger"></i> By
+            <a href="http://devcrud.com">DevCRUD</a>
+        </p>
+    </div>
+    <!-- end of page footer -->
+    {% endif %}
+    <!-- core  -->
+    <script src="{% static 'vendors/jquery/jquery-3.4.1.js' %}"></script>
+    <script src="{% static 'vendors/bootstrap/bootstrap.bundle.js' %}"></script>
+
+    <!-- bootstrap affix -->
+    <script src="{% static 'vendors/bootstrap/bootstrap.affix.js' %}"></script>
+
+    <!-- wow.js -->
+    <script src="{% static 'vendors/wow/wow.js' %}"></script>
+
+    <!-- google maps -->
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCtme10pzgKSPeJVJrG1O3tjR6lk98o4w8&callback=initMap"></script>
+
+    <!-- FoodHut js -->
+    <script src="{% static 'js/foodhut.js' %}"></script>
+
+</body>
+
+</html>

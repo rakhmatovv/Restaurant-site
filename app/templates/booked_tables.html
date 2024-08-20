@@ -1,0 +1,53 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+    <h1 class="title text-center">Booked tables</h1>
+
+
+            <div class="container_of_books">
+    {% for book in booked %}
+        {% if timenow > book.date %}
+                <h4 class="text-danger">Nothing booked yet</h4>
+
+
+            {% elif not book.date == timenow %}
+
+                <div class="booked_table">
+
+
+                    <div class="row mb-5">
+                        <div class="col-sm-6 col-md-3 col-xs-12 my-2">
+                            Name: {{ book.name }}
+                        </div>
+                        <div class="col-sm-6 col-md-3 col-xs-12 my-2">
+                            Last name: {{ book.last_name }}
+                        </div>
+                        <div class="col-sm-6 col-md-3 col-xs-12 my-2">
+                            Party: {{ book.party }}
+                        </div>
+                    </div>
+                    <div class="row mb-5">
+                        <div class="col-sm-6 col-md-3 col-xs-12 my-2">
+                            Spending time: Hours: {{ book.spending_time }}
+                        </div>
+                        <div class="col-sm-6 col-md-3 col-xs-12 my-2">
+                            Time: {{ book.time }}
+                        </div>
+                        <div class="col-sm-6 col-md-3 col-xs-12 my-2">
+                            Date: {{ book.date }}
+                        </div>
+                        <div class="col-sm-6 col-md-3 col-xs-12 my-2">
+                            Table: {{ book.table }}
+                        </div>
+                    </div>
+                </div>
+        {% else %}
+    <h4 class="text-danger">Nothing booked yet</h4>
+        {% endif %}
+    {% endfor %}
+            </div>
+
+
+
+
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'base_layout.html' %}
+{% load static %}
+
+{% block content %}
+<div class="columns">
+    <div class="column">
+        <img src="{{ product.thumb.url }}" alt="">
+    </div>
+    <div class="column">
+        <h2 class="title">{{ product.title }}</h2><br><br>
+        <p class="subtitle">{{ product.description }}</p><br><br>
+        <h2 class="small-title">{{ product.price }}</h2>
+    </div>
+</div>
+{% endblock %}
